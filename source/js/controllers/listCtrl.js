@@ -4,6 +4,10 @@ angular.module('app').controller('listCtrl', function (listFactory, cardFactory)
         listFactory.removeList(list);
     };
 
+    this.sortByName = function (lists) {
+        listFactory.sortByName(lists);
+    };
+
     this.getCards = function (list) {
       return cardFactory.getCards(list);
     };

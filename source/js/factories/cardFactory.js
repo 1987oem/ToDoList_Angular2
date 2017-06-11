@@ -33,6 +33,10 @@ angular.module('app').factory('cardFactory', function () {
         });
     };
 
+    service.sortByName = function(card){
+        return _.sortBy(cards, card);
+    };
+
     service.deleteCard = function (card) {
         return _.pull(cards, card);
     };

@@ -7,6 +7,10 @@ angular.module('app').controller('cardCtrl', function (cardFactory) {
        cardFactory.deleteCard(card);
    };
 
+    this.sortByName = function (card) {
+        cardFactory.sortByName(card);
+    };
+
    this.editCard = function (card) {
      this.isEditing = true;
        this.editingCard = angular.copy(card);

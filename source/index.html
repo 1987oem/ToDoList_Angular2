@@ -13,6 +13,17 @@
     </div>
   </header>
 
+  <!--<table>-->
+    <!--<th ><a href="" ng-click="sortBy='listName'">Sort</a></th>-->
+    <!--<th><a href="" ng-click="sortBy='timediff(task.time_start,task.time_stop)'">Time difference</a></th>-->
+
+    <!--<tr ng-repeat="list in listsCtrl.lists | orderBy:sortBy">-->
+      <!--<td >{{ list.listName}}</td>-->
+      <!--<td >{{ timediff(task.time_start,task.time_stop) }}</td>-->
+    <!--</tr>-->
+
+  <!--</table>-->
+
   <section id="lists-container"
            class="lists-container"
            ng-controller="listsCtrl as listsCtrl">
@@ -64,6 +75,10 @@
             <div class="remove remoe-list"></div>
         </a>
 
+        <a ng-click="cardCtrl.sortByName(card)" class='hand'>
+          <div class="remove remoe-list">Sort</div>
+        </a>
+
         <section class="new-card">
           <form ng-submit="listCtrl.createCard(list)">
             <input type="text"
@@ -73,6 +88,7 @@
           </form>
 
         </section>
+
       </section>
 
 
@@ -86,9 +102,6 @@
     </div>
 
   </section>
-
-
-
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
