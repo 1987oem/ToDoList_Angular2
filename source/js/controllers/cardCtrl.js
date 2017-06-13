@@ -8,7 +8,7 @@ angular.module('app').controller('cardCtrl', function (cardFactory) {
    };
 
     this.sortByName = function (card) {
-        cardFactory.sortByName(card);
+        listFactory.sortByName(card);
     };
 
    this.editCard = function (card) {

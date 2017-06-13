@@ -8,6 +8,16 @@ angular.module('app').factory('cardFactory', function () {
             list_id: 1
         },
         {
+            id: 1,
+            description: 'About',
+            list_id: 1
+        },
+        {
+            id: 1,
+            description: 'Clean',
+            list_id: 1
+        },
+        {
             id: 2,
             description: 'Code',
             list_id: 2
@@ -33,8 +43,14 @@ angular.module('app').factory('cardFactory', function () {
         });
     };
 
-    service.sortByName = function(card){
-        return _.sortBy(cards, card);
+    service.sortByName = function(list, cardDescription){
+        return _.sortBy(cards, description);
+        cards.push({
+            id: _.uniqueId('card_'),
+            description: cardDescription,
+            list_id: list.id
+        });
+        console.log('im here', getCards(cardDescription));
     };
 
     service.deleteCard = function (card) {

@@ -9,7 +9,7 @@
 <body ng-cloak>
   <header>
     <div class='row'>
-      <h1 class='app-name left'>Trello</h1>
+      <h1 class='app-name left'>ToDoList</h1>
     </div>
   </header>
 
@@ -35,13 +35,16 @@
                ng-controller="listCtrl as listCtrl">
         <h1>{{list.listName}}</h1>
 
+        <th ><a href="" ng-click="sortBy='description'; reverse = !reverse">Sort</a></th>
+
         <div class="card"
              ng-controller="cardCtrl as cardCtrl"
-              ng-repeat="card in listCtrl.getCards(list)">
+              ng-repeat="card in listCtrl.getCards(list) | orderBy:sortBy">
 
           <div ng-if="!cardCtrl.isEditing">
 
             {{card.description}}
+            {{card.id}}
 
               <div ng-click="cardCtrl.editCard(card)"
                     class="edit-small edit-card hand">
@@ -50,7 +53,6 @@
               <div ng-click="cardCtrl.deleteCard(card)"
                     class="remove-small remove-card hand">
               </div>
-
           </div>
 
           <div ng-if="cardCtrl.isEditing">
@@ -73,10 +75,6 @@
 
         <a ng-click="listCtrl.removeList(list)" class='hand'>
             <div class="remove remoe-list"></div>
-        </a>
-
-        <a ng-click="cardCtrl.sortByName(card)" class='hand'>
-          <div class="remove remoe-list">Sort</div>
         </a>
 
         <section class="new-card">
